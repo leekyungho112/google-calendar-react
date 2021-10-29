@@ -1,5 +1,23 @@
+const labelsClasses = [
+  'red',
+  'yellow',
+  'gray',
+  'green',
+  'blue',
+  'indigo',
+  'pink',
+  'purple',
+];
+
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: {
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    safelist: [
+      ...labelsClasses.map((lbl) => `bg-${lbl}-500`),
+      ...labelsClasses.map((lbl) => `bg-${lbl}-200`),
+      ...labelsClasses.map((lbl) => `text-${lbl}-400`),
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
