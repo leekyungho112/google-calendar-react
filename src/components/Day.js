@@ -6,7 +6,7 @@ import GlobalContext from '../context/GlobalContext';
 dayjs.locale('ko');
 const Day = ({ day, rowIdx }) => {
   const [dayEvents, setDayEvents] = useState([]);
-  const [isAdd, setIsAdd] = useState(false);
+
   const {
     setDaySelected,
     setShowEventModal,
@@ -43,7 +43,7 @@ const Day = ({ day, rowIdx }) => {
           setShowEventModal(true);
         }}
       >
-        {dayEvents.slice(0, 3).map((evt, idx) => (
+        {dayEvents.map((evt, idx) => (
           <div
             className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
             key={idx}
@@ -52,25 +52,6 @@ const Day = ({ day, rowIdx }) => {
             {evt.title}
           </div>
         ))}
-        {dayEvents.length > 3 && (
-          <span
-            onClick={() => setIsAdd((prev) => !prev)}
-            className="material-icons-outlined text-gray-400"
-          >
-            add
-          </span>
-        )}
-
-        {isAdd &&
-          dayEvents.slice(3).map((evt, idx) => (
-            <div
-              className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
-              key={idx}
-              onClick={() => setSelectedEvent(evt)}
-            >
-              {evt.title}
-            </div>
-          ))}
       </div>
     </div>
   );
