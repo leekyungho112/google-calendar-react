@@ -14,3 +14,7 @@ useContext와 useReducer를 사용하여 state를 전역관리 하였는데 아�
 
 - 일정을 하루단위가 아닌 선택한 날짜의 지정만큼 기능을 추가
 - 반응형 디자인
+
+### PreView
+
+[👉Kookle-calendar](https://kookle-calendar.netlify.app/)
